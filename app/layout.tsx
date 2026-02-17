@@ -47,6 +47,23 @@ export default function RootLayout({
                 </div>
               </div>
             </Link>
+            <nav className="flex flex-wrap items-center gap-2">
+              <Link href="/" className="rounded-full bg-zinc-800 px-3 py-1 text-sm transition hover:bg-zinc-700">
+                Inicio
+              </Link>
+              <Link href="/operacion" className="rounded-full bg-zinc-800 px-3 py-1 text-sm transition hover:bg-zinc-700">
+                Operación
+              </Link>
+              <Link href="/dashboard" className="rounded-full bg-zinc-800 px-3 py-1 text-sm transition hover:bg-zinc-700">
+                Dashboard
+              </Link>
+              <Link href="/chat" className="rounded-full bg-zinc-800 px-3 py-1 text-sm transition hover:bg-zinc-700">
+                Chat
+              </Link>
+              <Link href="/unidades" className="rounded-full bg-zinc-800 px-3 py-1 text-sm transition hover:bg-zinc-700">
+                Unidades
+              </Link>
+            </nav>
           </div>
         </header>
         <Providers>{children}</Providers>

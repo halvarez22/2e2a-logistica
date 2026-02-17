@@ -20,6 +20,12 @@ export default function Home() {
             Dashboard gerencial
           </Link>
           <Link
+            href="/chat"
+            className="rounded-2xl bg-zinc-950 px-6 py-4 transition hover:bg-zinc-900"
+          >
+            Chat Operativo
+          </Link>
+          <Link
             href="/unidades"
             className="rounded-2xl bg-zinc-950 px-6 py-4 transition hover:bg-zinc-900"
           >
