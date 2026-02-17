@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+ import Providers from "./providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +30,32 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <header className="bg-black text-zinc-50">
+          <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+            <Link href="/">
+              <div className="flex items-center gap-3">
+                <Image
+                  src="/images/Logo Aaron blanco_2_sin fondo.png"
+                  alt="Logo corporativo"
+                  width={160}
+                  height={40}
+                  priority
+                />
+                <div className="hidden sm:flex flex-col leading-tight">
+                  <span className="text-sm font-medium text-zinc-200">Operador</span>
+                  <span className="text-sm font-medium text-zinc-200">Logístico</span>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </header>
+        <Providers>{children}</Providers>
+        <footer className="bg-black text-zinc-400">
+          <div className="mx-auto max-w-6xl px-6 py-6 text-center text-sm">
+            Powered By&nbsp; <span className="font-medium text-zinc-200">pai-b</span>
+            &nbsp; (Your Private Artificial Intelligence For Business) &nbsp; © Todos los derechos reservados 2026
+          </div>
+        </footer>
       </body>
     </html>
   );

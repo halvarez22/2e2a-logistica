@@ -1,0 +1,28 @@
+ rules_version = '2';
+ service cloud.firestore {
+   match /databases/{database}/documents {
+     function hasRole(role) {
+       return request.auth.token.role == role;
+     }
+     function hasAnyRole(roles) {
+       return roles.hasAny([request.auth.token.role]);
+     }
+ 
+     match /movimientos/{id} {
+       allow read: if hasAnyRole(['Operador','Supervisor','Gerente','Admin','Auditor']);
+       allow create: if hasAnyRole(['Operador','Supervisor','Admin']);
+       allow update: if hasAnyRole(['Supervisor','Admin']);
+       allow delete: if hasRole('Admin');
+     }
+ 
+     match /unidades/{id} {
+       allow read: if hasAnyRole(['Operador','Supervisor','Gerente','Admin','Auditor']);
+       allow write: if hasAnyRole(['Supervisor','Admin']);
+     }
+ 
+     match /jornadas/{id} {
+       allow read: if hasAnyRole(['Operador','Supervisor','Gerente','Admin','Auditor']);
+       allow write: if hasAnyRole(['Supervisor','Admin']);
+     }
+   }
+ }
